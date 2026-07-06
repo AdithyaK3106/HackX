@@ -84,16 +84,16 @@ Last updated: 2026-07-06
 ---
 
 ## Hardening Phase
-**Status:** NOT STARTED  
-**Owner:** —  
-**Target completion:** —
+**Status:** ✅ COMPLETE  
+**Owner:** claude  
+**Target completion:** 2026-07-06
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Perf budget tests | ⬜ | check < 5s; integrate < 60s |
-| Conflict-resistance tests | ⬜ | 4 concurrent authors |
-| Edge case tests | ⬜ | Empty contracts, circular deps, missing owners, etc. |
-| Full integration tests | ⬜ | End-to-end flow |
+| Perf budget tests | ✅ | check < 1s even with 100 contracts + 50 slices |
+| Conflict-resistance tests | ✅ | 4 concurrent authors; append-only events work |
+| Edge case tests | ✅ | 10 scenarios (empty, circular, unknown owner, etc.) |
+| Full integration tests | ✅ | E2E flow verified through all components |
 
 ---
 
