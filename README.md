@@ -115,7 +115,7 @@ Shows only events relevant to your slice:
 
 ### 6. Validate Before Merge
 ```bash
-hackses integrate
+hackx integrate
 ```
 
 Checks:
@@ -188,11 +188,6 @@ End of Hackathon
 ## Documentation
 
 - **[QUICKSTART.md](./QUICKSTART.md)** — 5-minute walkthrough, key concepts, troubleshooting
-- **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** — Complete project overview, architecture, metrics
-- **[HackSES_FRD_v2.md](./HackSES_FRD_v2.md)** — Full functional requirements spec
-- **[CLAUDE.md](./CLAUDE.md)** — Development guidelines (Ponytail principle)
-- **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** — Milestone breakdown
-- **[STATUS.md](./STATUS.md)** — Project completion status
 
 ## Project Status
 
@@ -216,7 +211,7 @@ End of Hackathon
 - **Config:** `js-yaml`
 - **Glob matching:** `minimatch`
 - **Testing:** `vitest`
-- **Distribution:** npm package (`npx hackses`)
+- **Distribution:** npm package (`npx hackx`)
 
 ## Running Tests
 
@@ -290,7 +285,7 @@ MIT — See LICENSE file
 
 ## Contributing
 
-This is a reference implementation of the HackSES coordination protocol. Contributions welcome:
+This is a reference implementation of the HackX coordination protocol. Contributions welcome:
 - Bug fixes and performance improvements
 - Additional validators (security linting, performance checks)
 - Language support (Go, Rust, Python CLIs)
