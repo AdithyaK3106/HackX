@@ -3,6 +3,8 @@ import { Command } from 'commander';
 import { check } from './validators/check.js';
 import { registerInitCommand } from './commands/init.js';
 import { registerContractCommand } from './commands/contract.js';
+import { registerPartitionCommand } from './commands/partition.js';
+import { registerContextCommand } from './commands/context.js';
 
 const program = new Command();
 
@@ -32,5 +34,7 @@ program
 
 registerInitCommand(program);
 registerContractCommand(program);
+registerPartitionCommand(program);
+registerContextCommand(program);
 
 program.parse();

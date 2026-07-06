@@ -36,17 +36,17 @@ Last updated: 2026-07-06
 ---
 
 ## Milestone 3: Partitioning & Context Packs (R2)
-**Status:** NOT STARTED  
-**Owner:** —  
-**Target completion:** —
+**Status:** ✅ COMPLETE  
+**Owner:** claude  
+**Target completion:** 2026-07-06
 
 | Task | Status | Notes |
 |------|--------|-------|
-| `hackses partition` command | ⬜ | Slice proposal + ownership assignment |
-| Context pack builder | ⬜ | Assemble owner-scoped `.md` files |
-| `hackses context <owner>` | ⬜ | Build/refresh single pack |
-| Tests | ⬜ | Slicing + packing + ownership |
-| **Acceptance criteria** | ⬜ | No unowned paths in pack; depends_on visible; acyclic graph |
+| `hackses partition` command | ✅ | Auto-proposes slices from contracts; confirms before saving |
+| Context pack builder | ✅ | Generates owner-scoped .md with contracts, deps, conventions |
+| `hackses context <owner>` | ✅ | Regenerates/refreshes single owner's pack |
+| Tests | ✅ | 14 tests (slicer + packer); cycle detection verified |
+| **Acceptance criteria** | ✅ | Only owned paths in packs; depends_on visible; acyclic validation |
 
 ---
 
