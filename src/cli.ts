@@ -7,6 +7,7 @@ import { registerPartitionCommand } from './commands/partition.js';
 import { registerContextCommand } from './commands/context.js';
 import { registerSyncCommand } from './commands/sync.js';
 import { registerPullCommand } from './commands/pull.js';
+import { registerIntegrateCommand } from './commands/integrate.js';
 
 const program = new Command();
 
@@ -40,5 +41,6 @@ registerPartitionCommand(program);
 registerContextCommand(program);
 registerSyncCommand(program);
 registerPullCommand(program);
+registerIntegrateCommand(program);
 
 program.parse();
