@@ -12,13 +12,13 @@ import { registerIntegrateCommand } from './commands/integrate.js';
 const program = new Command();
 
 program
-  .name('hackses')
+  .name('hackx')
   .description('AI Coordination Protocol for hackathon teams')
   .version('0.1.0');
 
 program
   .command('check')
-  .description('Validate .hackses/ consistency')
+  .description('Validate .hackx/ consistency')
   .action(async () => {
     const result = await check();
     if (result.errors.length > 0) {

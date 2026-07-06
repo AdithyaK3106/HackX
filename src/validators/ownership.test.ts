@@ -93,9 +93,9 @@ describe('checkOwnership', () => {
     expect(result.violations).toHaveLength(1);
   });
 
-  it('skips .hackses/ files', () => {
+  it('skips .hackx/ files', () => {
     const result = checkOwnership(
-      ['.hackses/slices.json', 'backend/auth/login.ts'],
+      ['.hackx/slices.json', 'backend/auth/login.ts'],
       'alice',
       ownership,
       slices,

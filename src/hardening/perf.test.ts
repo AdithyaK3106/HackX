@@ -10,7 +10,7 @@ describe('Performance budgets', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-perf-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-perf-'));
     manager = new StateManager(tempDir);
     await manager.ensureHacksesDir();
   });

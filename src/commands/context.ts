@@ -9,7 +9,7 @@ export async function context(owner: string, projectRoot: string = '.'): Promise
 
   // Check all required files
   if (!(await state.slicesExist())) {
-    console.error('❌ slices.json not found. Run hackses partition first.');
+    console.error('❌ slices.json not found. Run hackx partition first.');
     process.exit(1);
   }
 
@@ -35,7 +35,7 @@ export async function context(owner: string, projectRoot: string = '.'): Promise
   const pack = buildContextPack(owner, slices, contracts, conventions, schema);
 
   // Write to packs/ directory
-  const packsDir = path.join(projectRoot, '.hackses', 'packs');
+  const packsDir = path.join(projectRoot, '.hackx', 'packs');
   await fs.promises.mkdir(packsDir, { recursive: true });
 
   const packPath = path.join(packsDir, `${owner}.md`);

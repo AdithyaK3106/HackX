@@ -39,11 +39,11 @@ export async function initProject(optionsOrRoot: InitOptions | string = '.', opt
 
   const state = new StateManager(projectRoot);
 
-  console.log('\n🚀 Initializing HackSES project...\n');
+  console.log('\n🚀 Initializing HackX project...\n');
 
   // Check if already initialized
   if (await state.configExists()) {
-    console.log('⚠️  .hackses/ already initialized');
+    console.log('⚠️  .hackx/ already initialized');
     return;
   }
 
@@ -91,7 +91,7 @@ export async function initProject(optionsOrRoot: InitOptions | string = '.', opt
     throw new Error('Invalid policy');
   }
 
-  // Create .hackses directory
+  // Create .hackx directory
   await state.ensureHacksesDir();
 
   // Write config
@@ -159,17 +159,17 @@ Errors should follow this format:
 `;
   await state.writeSchema(schema);
 
-  console.log('✅ HackSES initialized!\n');
+  console.log('✅ HackX initialized!\n');
   console.log('Next steps:');
-  console.log('  1. hackses contract generate   — Define your API contracts');
-  console.log('  2. hackses partition           — Partition work into slices');
-  console.log('  3. hackses context <owner>     — Generate context packs for agents');
+  console.log('  1. hackx contract generate   — Define your API contracts');
+  console.log('  2. hackx partition           — Partition work into slices');
+  console.log('  3. hackx context <owner>     — Generate context packs for agents');
 }
 
 export function registerInitCommand(program: Command): void {
   program
     .command('init')
-    .description('Initialize a HackSES project')
+    .description('Initialize a HackX project')
     .option('--stack <type>', 'Stack (typescript/python/mixed)')
     .option('--team <members>', 'Team members (comma-separated)')
     .option('--build <cmd>', 'Build command')

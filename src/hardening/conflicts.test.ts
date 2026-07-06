@@ -10,7 +10,7 @@ describe('Conflict-resistance', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-conflict-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-conflict-'));
     manager = new StateManager(tempDir);
     await manager.ensureHacksesDir();
   });
@@ -57,7 +57,7 @@ describe('Conflict-resistance', () => {
     await manager.writeSyncEvent(filename2, event2);
 
     // Both should exist independently
-    const syncDir = path.join(tempDir, '.hackses', 'sync');
+    const syncDir = path.join(tempDir, '.hackx', 'sync');
     const files = fs.readdirSync(syncDir);
     expect(files).toHaveLength(2);
   });
@@ -66,7 +66,7 @@ describe('Conflict-resistance', () => {
     const owners = ['alice', 'bob', 'charlie'];
 
     // Write packs for each owner
-    const packsDir = path.join(tempDir, '.hackses', 'packs');
+    const packsDir = path.join(tempDir, '.hackx', 'packs');
     fs.mkdirSync(packsDir, { recursive: true });
 
     for (const owner of owners) {
@@ -107,8 +107,8 @@ describe('Conflict-resistance', () => {
     await manager.writeContracts(contracts);
 
     // Both should exist independently
-    expect(fs.existsSync(path.join(tempDir, '.hackses', 'config.yaml'))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir, '.hackses', 'contracts.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, '.hackx', 'config.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, '.hackx', 'contracts.yaml'))).toBe(true);
 
     // Read them back
     const readConfig = await manager.readConfig();

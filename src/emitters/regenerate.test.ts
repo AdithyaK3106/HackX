@@ -10,7 +10,7 @@ describe('regenerateSharedTypes', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-'));
     manager = new StateManager(tempDir);
     await manager.ensureHacksesDir();
   });
@@ -39,7 +39,7 @@ describe('regenerateSharedTypes', () => {
 
     await regenerateSharedTypes(tempDir);
 
-    const tsPath = path.join(tempDir, '.hackses', 'shared_types', 'index.ts');
+    const tsPath = path.join(tempDir, '.hackx', 'shared_types', 'index.ts');
     expect(fs.existsSync(tsPath)).toBe(true);
     const content = fs.readFileSync(tsPath, 'utf-8');
     expect(content).toContain('export type');
@@ -66,7 +66,7 @@ describe('regenerateSharedTypes', () => {
 
     await regenerateSharedTypes(tempDir);
 
-    const pyPath = path.join(tempDir, '.hackses', 'shared_types', 'types.py');
+    const pyPath = path.join(tempDir, '.hackx', 'shared_types', 'types.py');
     expect(fs.existsSync(pyPath)).toBe(true);
     const content = fs.readFileSync(pyPath, 'utf-8');
     expect(content).toContain('class');
@@ -93,8 +93,8 @@ describe('regenerateSharedTypes', () => {
 
     await regenerateSharedTypes(tempDir);
 
-    const tsPath = path.join(tempDir, '.hackses', 'shared_types', 'index.ts');
-    const pyPath = path.join(tempDir, '.hackses', 'shared_types', 'types.py');
+    const tsPath = path.join(tempDir, '.hackx', 'shared_types', 'index.ts');
+    const pyPath = path.join(tempDir, '.hackx', 'shared_types', 'types.py');
     expect(fs.existsSync(tsPath)).toBe(true);
     expect(fs.existsSync(pyPath)).toBe(true);
   });
@@ -110,7 +110,7 @@ describe('regenerateSharedTypes', () => {
       endpoints: [],
     });
 
-    const dir = path.join(tempDir, '.hackses', 'shared_types');
+    const dir = path.join(tempDir, '.hackx', 'shared_types');
     expect(fs.existsSync(dir)).toBe(false);
 
     await regenerateSharedTypes(tempDir);

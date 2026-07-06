@@ -10,7 +10,7 @@ describe('check command', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-'));
     manager = new StateManager(tempDir);
     await manager.ensureHacksesDir();
   });
@@ -148,7 +148,7 @@ describe('check command', () => {
     });
     // Write invalid slices.json directly to bypass schema validation
     await (await import('fs')).promises.writeFile(
-      path.join(tempDir, '.hackses', 'slices.json'),
+      path.join(tempDir, '.hackx', 'slices.json'),
       '{ invalid json',
     );
     const result = await check(tempDir);

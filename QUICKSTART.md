@@ -1,4 +1,4 @@
-# HackSES Quick Start
+# HackX Quick Start
 
 A CLI protocol for AI agents coordinating on hackathon teams. No servers, no cloud—just git-backed state and shared contracts.
 
@@ -7,7 +7,7 @@ A CLI protocol for AI agents coordinating on hackathon teams. No servers, no clo
 ### 1. Initialize Your Project
 
 ```bash
-npx hackses init
+npx hackx init
 ```
 
 Answer the prompts:
@@ -16,18 +16,18 @@ Answer the prompts:
 - **Commands**: (optional) build, test, lint commands for your toolchain
 - **Policy**: `permissive` (warn) or `strict` (block) for ownership violations
 
-Creates `.hackses/` directory with config, empty contracts, ownership rules, and conventions.
+Creates `.hackx/` directory with config, empty contracts, ownership rules, and conventions.
 
 ### 2. Define Your API Contracts
 
 ```bash
-npx hackses contract generate
+npx hackx contract generate
 ```
 
 Interactively add endpoints. Each endpoint becomes:
 - Canonical API definition (lives in `contracts.yaml`)
-- Auto-generated TypeScript types in `.hackses/shared_types/index.ts`
-- Auto-generated Python types in `.hackses/shared_types/types.py`
+- Auto-generated TypeScript types in `.hackx/shared_types/index.ts`
+- Auto-generated Python types in `.hackx/shared_types/types.py`
 
 Example:
 ```
@@ -40,7 +40,7 @@ Add request schema? y
 ### 3. Partition Work into Slices
 
 ```bash
-npx hackses partition
+npx hackx partition
 ```
 
 The tool:
@@ -54,7 +54,7 @@ Output: `slices.json`, `graph.json`, `packs/alice.md`, `packs/bob.md`, etc.
 ### 4. Each Developer: Get Your Context Pack
 
 ```bash
-npx hackses context <your-username>
+npx hackx context <your-username>
 ```
 
 Regenerates your pack with:
@@ -64,26 +64,26 @@ Regenerates your pack with:
 - Conventions and schema excerpts
 - Ready-to-paste implementation prompt for your AI agent
 
-Pass the `.hackses/packs/<your-name>.md` file to your AI coding agent (Claude, Cursor, GPT, etc.).
+Pass the `.hackx/packs/<your-name>.md` file to your AI coding agent (Claude, Cursor, GPT, etc.).
 
 ### 5. Sync Changes and Pull Relevant Events
 
 After your AI agent makes progress, record it:
 
 ```bash
-npx hackses sync
+npx hackx sync
 ```
 
 Prompts for:
 - **Contract changes**: any new/modified endpoints (auto-detected from git)
 - **Blocked on**: another slice that's blocking you (leave empty if not)
 
-Creates append-only event file in `.hackses/sync/`.
+Creates append-only event file in `.hackx/sync/`.
 
 Then pull relevant updates from teammates:
 
 ```bash
-npx hackses pull <your-username>
+npx hackx pull <your-username>
 ```
 
 Shows only events relevant to your slice:
@@ -96,7 +96,7 @@ Shows only events relevant to your slice:
 Before merging to main:
 
 ```bash
-npx hackses integrate
+npx hackx integrate
 ```
 
 Validates:
@@ -113,21 +113,21 @@ Validates:
 ## Workflow Summary
 
 ```
-1. hackses init              # One-time setup
+1. hackx init              # One-time setup
    ↓
-2. hackses contract generate # Define APIs once
+2. hackx contract generate # Define APIs once
    ↓
-3. hackses partition         # Slice work once
+3. hackx partition         # Slice work once
    ↓
-4. hackses context <name>    # Each dev: get pack
+4. hackx context <name>    # Each dev: get pack
    ↓
 5. Agents work in parallel on their slices
    ↓
-6. hackses sync              # Each dev: record progress
+6. hackx sync              # Each dev: record progress
    ↓
-7. hackses pull <name>       # Each dev: see relevant updates
+7. hackx pull <name>       # Each dev: see relevant updates
    ↓
-8. hackses integrate         # Merge validation
+8. hackx integrate         # Merge validation
    ↓
 9. git commit + push
 ```
@@ -161,7 +161,7 @@ Append-only JSON files in `sync/`. Each event records:
 Idempotent: no changes = no event written. One file per event = zero merge conflicts.
 
 ### Relevance Filtering
-`hackses pull` shows only events relevant to your slice:
+`hackx pull` shows only events relevant to your slice:
 - Contracts you implement or depend on
 - Files in your paths or dependencies' paths
 - Blockers affecting you
@@ -171,7 +171,7 @@ Cuts noise—teammates' unrelated work is invisible to you.
 ## File Structure
 
 ```
-.hackses/
+.hackx/
 ├── config.yaml                # Stack, team, toolchain commands
 ├── contracts.yaml             # API definitions (canonical)
 ├── schema.sql                 # Database schema
@@ -196,41 +196,41 @@ Cuts noise—teammates' unrelated work is invisible to you.
 
 | Command | Purpose |
 |---------|---------|
-| `hackses init` | Bootstrap project |
-| `hackses contract generate` | Define API contracts |
-| `hackses partition` | Slice work and assign owners |
-| `hackses context <owner>` | Build/refresh context pack |
-| `hackses sync` | Record contract/file/blocker changes |
-| `hackses pull <owner>` | Show relevant sync events |
-| `hackses check` | Validate .hackses/ consistency |
-| `hackses integrate` | Merge validation pipeline |
+| `hackx init` | Bootstrap project |
+| `hackx contract generate` | Define API contracts |
+| `hackx partition` | Slice work and assign owners |
+| `hackx context <owner>` | Build/refresh context pack |
+| `hackx sync` | Record contract/file/blocker changes |
+| `hackx pull <owner>` | Show relevant sync events |
+| `hackx check` | Validate .hackx/ consistency |
+| `hackx integrate` | Merge validation pipeline |
 
 ## Tips
 
 - **First time?** Follow steps 1–4 with your team. Takes ~10 minutes.
 - **Contracts early**: define your APIs before implementing. Types auto-flow to agents.
-- **Ownership matters**: `hackses integrate` prevents cross-slice edits in strict mode.
+- **Ownership matters**: `hackx integrate` prevents cross-slice edits in strict mode.
 - **Sync often**: 20–30 min cadence keeps teammates synchronized without noise.
-- **Pull before coding**: `hackses pull` shows what changed while you were working.
-- **Hand packs to agents**: copy `.hackses/packs/<your-name>.md` into your Claude Code session.
+- **Pull before coding**: `hackx pull` shows what changed while you were working.
+- **Hand packs to agents**: copy `.hackx/packs/<your-name>.md` into your Claude Code session.
 
 ## Troubleshooting
 
 **"contracts.yaml not found"**  
-Run `hackses init` first.
+Run `hackx init` first.
 
 **"No slice found for owner"**  
-Run `hackses partition` to generate slices.
+Run `hackx partition` to generate slices.
 
 **Types out of sync**  
-Run `hackses contract generate` to regenerate types.
+Run `hackx contract generate` to regenerate types.
 
 **Integration blocked for ownership**  
-Use `hackses context <name>` to see which paths are yours. Only edit those. Then run `hackses integrate` again.
+Use `hackx context <name>` to see which paths are yours. Only edit those. Then run `hackx integrate` again.
 
 **Pull shows no events**  
-No teammates have synced relevant changes. Check `hackses pull <name>` — it filters by relevance.
+No teammates have synced relevant changes. Check `hackx pull <name>` — it filters by relevance.
 
 ---
 
-**Questions?** See `HackSES_FRD_v2.md` for the full spec. **Ready?** Run `hackses init`. ⚡
+**Questions?** See `HackX_FRD_v2.md` for the full spec. **Ready?** Run `hackx init`. ⚡

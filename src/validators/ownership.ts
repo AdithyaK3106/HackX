@@ -53,8 +53,8 @@ export function checkOwnership(
 
   // Check each file
   for (const file of changedFiles) {
-    // Skip .hackses/ files
-    if (file.startsWith('.hackses/')) {
+    // Skip .hackx/ files
+    if (file.startsWith('.hackx/')) {
       continue;
     }
 

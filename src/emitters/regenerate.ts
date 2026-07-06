@@ -21,7 +21,7 @@ export async function regenerateSharedTypes(projectRoot: string = '.'): Promise<
   const config = await state.readConfig();
 
   // Create shared_types directory
-  const sharedTypesDir = path.join(projectRoot, '.hackses', 'shared_types');
+  const sharedTypesDir = path.join(projectRoot, '.hackx', 'shared_types');
   await fs.promises.mkdir(sharedTypesDir, { recursive: true });
 
   // Emit TypeScript types

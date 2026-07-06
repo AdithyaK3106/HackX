@@ -1,11 +1,11 @@
 {
-  "name": "hackses",
+  "name": "hackx",
   "version": "0.1.0",
   "description": "AI Coordination Protocol for hackathon teams",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "hackses": "dist/cli.js"
+    "hackx": "dist/cli.js"
   },
   "scripts": {
     "build": "tsc",

@@ -42,7 +42,7 @@ describe('initProject setup', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-'));
     manager = new StateManager(tempDir);
   });
 
@@ -50,7 +50,7 @@ describe('initProject setup', () => {
     fs.rmSync(tempDir, { recursive: true });
   });
 
-  it('creates .hackses directory with all files', async () => {
+  it('creates .hackx directory with all files', async () => {
     await setupProject(tempDir, {
       stack: 'typescript',
       team: ['alice', 'bob'],

@@ -23,7 +23,7 @@ export async function sync(projectRoot: string = '.'): Promise<void> {
   const state = new StateManager(projectRoot);
 
   if (!(await state.configExists())) {
-    console.error('❌ config.yaml not found. Run hackses init first.');
+    console.error('❌ config.yaml not found. Run hackx init first.');
     process.exit(1);
   }
 
@@ -37,7 +37,7 @@ export async function sync(projectRoot: string = '.'): Promise<void> {
   let filesChanged: string[] = [];
   try {
     const gitDiff = execSync('git diff --name-only HEAD', { encoding: 'utf-8' });
-    filesChanged = gitDiff.trim().split('\n').filter(f => f && !f.startsWith('.hackses'));
+    filesChanged = gitDiff.trim().split('\n').filter(f => f && !f.startsWith('.hackx'));
   } catch {
     // Not in a git repo or no changes
   }
@@ -76,7 +76,7 @@ export async function sync(projectRoot: string = '.'): Promise<void> {
 
   // Commit
   try {
-    execSync(`git add .hackses/sync/${filename}`, { stdio: 'inherit' });
+    execSync(`git add .hackx/sync/${filename}`, { stdio: 'inherit' });
     execSync(`git commit -m "Sync event: ${author} (${contractChanges.length} contracts, ${filesChanged.length} files)"`, {
       stdio: 'inherit',
     });
@@ -85,7 +85,7 @@ export async function sync(projectRoot: string = '.'): Promise<void> {
     console.warn('⚠️  Could not auto-commit; commit manually');
   }
 
-  console.log('\nNext: hackses pull (download relevant events)');
+  console.log('\nNext: hackx pull (download relevant events)');
 }
 
 export function registerSyncCommand(program: Command): void {

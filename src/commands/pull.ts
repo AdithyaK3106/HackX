@@ -7,7 +7,7 @@ export async function pull(owner: string, projectRoot: string = '.'): Promise<vo
 
   // Check required files
   if (!(await state.slicesExist())) {
-    console.error('❌ slices.json not found. Run hackses partition first.');
+    console.error('❌ slices.json not found. Run hackx partition first.');
     process.exit(1);
   }
 

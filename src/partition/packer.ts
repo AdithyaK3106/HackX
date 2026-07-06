@@ -96,7 +96,7 @@ export function buildContextPack(
   // Implementation prompt
   content += `## Implementation Prompt\n`;
   content += `\`\`\`\n`;
-  content += `You are implementing the ${slice.id} slice for the HackSES hackathon project.\n\n`;
+  content += `You are implementing the ${slice.id} slice for the HackX hackathon project.\n\n`;
   content += `Your responsibilities:\n`;
   for (const criterion of slice.acceptance || []) {
     content += `- ${criterion}\n`;

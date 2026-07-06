@@ -1,4 +1,4 @@
-# HackSES — AI Coordination Protocol for Hackathon Teams
+# HackX — AI Coordination Protocol for Hackathon Teams
 
 ![Status](https://img.shields.io/badge/status-complete-brightgreen) ![Tests](https://img.shields.io/badge/tests-111%20passing-brightgreen) ![Coverage](https://img.shields.io/badge/coverage-%3E80%25-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue)
 
@@ -8,34 +8,34 @@ A git-backed CLI protocol that lets hackathon teams coordinate multiple AI codin
 
 You have 4 developers, each with their own AI coding agent. The agents are *fast*—but without shared contracts, they build incompatible interfaces, step on each other's code, and create merge conflicts you don't have time to untangle.
 
-**HackSES solves this.** Agents work in true parallel. No merge conflicts. One contract, one truth.
+**HackX solves this.** Agents work in true parallel. No merge conflicts. One contract, one truth.
 
 ## Quick Start
 
 ```bash
 # 1. Initialize project
-npx hackses init
+npx hackx init
 
 # 2. Define APIs
-npx hackses contract generate
+npx hackx contract generate
 
 # 3. Slice work, assign owners
-npx hackses partition
+npx hackx partition
 
 # 4. Each dev gets their context pack
-npx hackses context <your-name>
+npx hackx context <your-name>
 
 # 5. Pass pack to your AI agent
 # (Agent implements your slice)
 
 # 6. Record progress
-npx hackses sync
+npx hackx sync
 
 # 7. See teammate updates
-npx hackses pull <your-name>
+npx hackx pull <your-name>
 
 # 8. Validate and merge
-npx hackses integrate
+npx hackx integrate
 git commit && git push
 ```
 
@@ -59,7 +59,7 @@ See [QUICKSTART.md](./QUICKSTART.md) for a detailed walkthrough.
 Write API contracts once. Types auto-flow to all agents.
 
 ```yaml
-# .hackses/contracts.yaml
+# .hackx/contracts.yaml
 endpoints:
   - id: POST /auth/login
     method: POST
@@ -97,7 +97,7 @@ Pass the pack to your AI agent.
 ### 4. Sync Changes
 Agents implement in parallel. Record progress with:
 ```bash
-hackses sync
+hackx sync
 ```
 
 Creates append-only event files (one per sync, zero conflicts).
@@ -105,7 +105,7 @@ Creates append-only event files (one per sync, zero conflicts).
 ### 5. Stay Synchronized
 Pull relevant updates:
 ```bash
-hackses pull <your-name>
+hackx pull <your-name>
 ```
 
 Shows only events relevant to your slice:
@@ -141,7 +141,7 @@ Core Engines (5 responsibilities)
     ├─ R4: Integration Validation (Ownership + Contracts + Types + Schema)
     └─ Foundation: State Management (Schemas + I/O)
     ↓
-.hackses/ (Plain text, git-backed)
+.hackx/ (Plain text, git-backed)
     ├─ config.yaml
     ├─ contracts.yaml
     ├─ slices.json
@@ -156,29 +156,29 @@ See [PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md) for detailed architecture.
 
 | Command | Purpose |
 |---------|---------|
-| `hackses init` | Bootstrap project (stack, team, toolchain) |
-| `hackses contract generate` | Define API contracts interactively |
-| `hackses partition` | Propose slices, assign owners |
-| `hackses context <owner>` | Generate/refresh context pack |
-| `hackses sync` | Record contract/file/blocker changes |
-| `hackses pull <owner>` | Show relevant teammate updates |
-| `hackses check` | Validate `.hackses/` consistency |
-| `hackses integrate` | Merge validation pipeline |
+| `hackx init` | Bootstrap project (stack, team, toolchain) |
+| `hackx contract generate` | Define API contracts interactively |
+| `hackx partition` | Propose slices, assign owners |
+| `hackx context <owner>` | Generate/refresh context pack |
+| `hackx sync` | Record contract/file/blocker changes |
+| `hackx pull <owner>` | Show relevant teammate updates |
+| `hackx check` | Validate `.hackx/` consistency |
+| `hackx integrate` | Merge validation pipeline |
 
 ## Workflow
 
 ```
 Setup (Day 1)
-├─ hackses init
-├─ hackses contract generate
-├─ hackses partition
-└─ hackses context <each-name> → Agents get packs
+├─ hackx init
+├─ hackx contract generate
+├─ hackx partition
+└─ hackx context <each-name> → Agents get packs
 
 Sprint Cycles (20-30 min cadence)
 ├─ Agents implement in parallel
-├─ hackses sync (each dev)
-├─ hackses pull <name> (each dev)
-├─ hackses integrate
+├─ hackx sync (each dev)
+├─ hackx pull <name> (each dev)
+├─ hackx integrate
 └─ git commit + push
 
 End of Hackathon
@@ -246,7 +246,7 @@ npm run check    # Type check + lint
 - Single-writer contracts/config → no concurrent mutations
 - DAG dependency graph → no circular conflicts
 
-See [hardening/conflicts.test.ts](./src/hardening/conflicts.test.ts) for tests.
+See [src/hardening/conflicts.test.ts](./src/hardening/conflicts.test.ts) for tests.
 
 ## Key Design Principles
 
@@ -266,8 +266,6 @@ This project follows the "Ponytail" principle: lazy, minimal, YAGNI-first.
 - **Stdlib first** — minimize dependencies
 - **One-line solutions** work when they work
 - **Deliberate simplifications** are marked with `// ponytail:` comments
-
-See [CLAUDE.md](./CLAUDE.md) for the full philosophy.
 
 ## What's Deferred to v2
 
@@ -307,7 +305,7 @@ Questions? Open an issue or see [QUICKSTART.md](./QUICKSTART.md) troubleshooting
 
 **Ready to coordinate AI teams?** Run:
 ```bash
-npx hackses init
+npx hackx init
 ```
 
-**⚡ HackSES: One contract, one truth, true parallelism.**
+**⚡ HackX: One contract, one truth, true parallelism.**

@@ -85,7 +85,7 @@ export async function integrate(): Promise<void> {
 
   // 3. Type consistency
   console.log('📋 Checking types...');
-  const sharedTypesDir = path.join('.hackses', 'shared_types');
+  const sharedTypesDir = path.join('.hackx', 'shared_types');
   const typeResult = await checkTypeConsistency(currentContracts, sharedTypesDir, config.stack);
   if (!typeResult.passed) {
     checks.push({

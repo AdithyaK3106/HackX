@@ -63,7 +63,7 @@ export async function generateContracts(projectRoot: string = '.'): Promise<void
   const state = new StateManager(projectRoot);
 
   if (!(await state.contractsExist())) {
-    console.error('❌ contracts.yaml not found. Run hackses init first.');
+    console.error('❌ contracts.yaml not found. Run hackx init first.');
     process.exit(1);
   }
 
@@ -109,7 +109,7 @@ export async function generateContracts(projectRoot: string = '.'): Promise<void
 
   console.log(`\n✅ Saved ${endpoints.length} endpoint(s) to contracts.yaml`);
   console.log('✅ Regenerated shared types');
-  console.log('\nNext: hackses partition');
+  console.log('\nNext: hackx partition');
 }
 
 export function registerContractCommand(program: Command): void {

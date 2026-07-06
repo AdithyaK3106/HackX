@@ -25,12 +25,12 @@ export async function partition(projectRoot: string = '.'): Promise<void> {
   const state = new StateManager(projectRoot);
 
   if (!(await state.contractsExist())) {
-    console.error('❌ contracts.yaml not found. Run hackses contract generate first.');
+    console.error('❌ contracts.yaml not found. Run hackx contract generate first.');
     process.exit(1);
   }
 
   if (!(await state.configExists())) {
-    console.error('❌ config.yaml not found. Run hackses init first.');
+    console.error('❌ config.yaml not found. Run hackx init first.');
     process.exit(1);
   }
 
@@ -84,7 +84,7 @@ export async function partition(projectRoot: string = '.'): Promise<void> {
     schema,
   );
 
-  const packsDir = path.join(projectRoot, '.hackses', 'packs');
+  const packsDir = path.join(projectRoot, '.hackx', 'packs');
   await fs.promises.mkdir(packsDir, { recursive: true });
 
   for (const [owner, content] of packs) {
@@ -94,7 +94,7 @@ export async function partition(projectRoot: string = '.'): Promise<void> {
   }
 
   console.log(`\n✅ Partitioning complete! ${packs.size} context pack(s) ready.`);
-  console.log('\nNext: hackses pull (sync and download your context pack)');
+  console.log('\nNext: hackx pull (sync and download your context pack)');
 }
 
 export function registerPartitionCommand(program: Command): void {

@@ -9,7 +9,7 @@ describe('StateManager', () => {
   let manager: StateManager;
 
   beforeEach(async () => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackses-'));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hackx-'));
     manager = new StateManager(tempDir);
     await manager.ensureHacksesDir();
   });
