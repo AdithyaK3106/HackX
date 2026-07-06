@@ -51,18 +51,18 @@ Last updated: 2026-07-06
 ---
 
 ## Milestone 4: Sync & Pull (R3)
-**Status:** NOT STARTED  
-**Owner:** —  
-**Target completion:** —
+**Status:** ✅ COMPLETE  
+**Owner:** claude  
+**Target completion:** 2026-07-06
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Sync state schema + event writer | ⬜ | Append-only JSON; one file per event |
-| `hackses sync` command | ⬜ | Auto-infer files; prompt for contracts/blocked |
-| Relevance filter | ⬜ | Contract + path adjacency + blocker resolution |
-| `hackses pull` command | ⬜ | Show relevant events post-git-pull |
-| Tests | ⬜ | Event generation + filtering |
-| **Acceptance criteria** | ⬜ | Idempotent; filtering correct; stash/restore on sync |
+| Sync state schema + event writer | ✅ | Append-only JSON; one file per event; idempotent |
+| `hackses sync` command | ✅ | Auto-infers files from git; prompts for contracts/blocked |
+| Relevance filter | ✅ | Contract changes, path adjacency, blocker state |
+| `hackses pull` command | ✅ | Displays relevant events with author, timestamp |
+| Tests | ✅ | 17 tests (events + relevance); contract/path/blocker scenarios |
+| **Acceptance criteria** | ✅ | Idempotent; filtering verified; minimatch for globs |
 
 ---
 

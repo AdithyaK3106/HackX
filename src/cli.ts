@@ -5,6 +5,8 @@ import { registerInitCommand } from './commands/init.js';
 import { registerContractCommand } from './commands/contract.js';
 import { registerPartitionCommand } from './commands/partition.js';
 import { registerContextCommand } from './commands/context.js';
+import { registerSyncCommand } from './commands/sync.js';
+import { registerPullCommand } from './commands/pull.js';
 
 const program = new Command();
 
@@ -36,5 +38,7 @@ registerInitCommand(program);
 registerContractCommand(program);
 registerPartitionCommand(program);
 registerContextCommand(program);
+registerSyncCommand(program);
+registerPullCommand(program);
 
 program.parse();
