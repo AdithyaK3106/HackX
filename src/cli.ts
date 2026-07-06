@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { check } from './validators/check.js';
+import { registerInitCommand } from './commands/init.js';
+import { registerContractCommand } from './commands/contract.js';
 
 const program = new Command();
 
@@ -27,5 +29,8 @@ program
     }
     process.exit(result.passed ? 0 : 1);
   });
+
+registerInitCommand(program);
+registerContractCommand(program);
 
 program.parse();
